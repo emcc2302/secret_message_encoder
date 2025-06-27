@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Soriful Islam Sk" />
+
+    <title>🕵️‍♂️ Secret Message Encoder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="secret-msg">
+      <h1>🕵️‍♂️ Secret Message Encoder</h1>
+
+      <textarea
+        id="message"
+        placeholder="Please Enter Your Message Here...."
+      ></textarea>
+
+      <select class="option">
+        <option value="Caesar">Caesar Cipher (+3)</option>
+        <option value="reverse">Reverse Text</option>
+        <option value="symbol">Symbol Swap</option>
+      </select>
+
+      <div class="buttons">
+        <button>Encode</button>
+        <button>Decode</button>
+        <button>Clear</button>
+      </div>
+
+      <div id="result" class="result-box"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
