@@ -36,32 +36,62 @@ resultBox.textContent=encode;
 }
 
 
+// function decode() {
+//   const method = methodSelect.value;
+//   const encoded = resultBox.textContent;
+//   let decoded = "";
+
+//   switch (method) {
+//     case "reverse":
+//       decode = encoded.split("").reverse().join("");
+//       break;
+
+//     case "Caesar":
+//       decode = encoded.replace(/[a-z]/gi, char => {
+//         const shift = -3;
+//         const base = char >= 'a' ? 97 : 65;
+//         return String.fromCharCode((char.charCodeAt(0) - base + shift + 26) % 26 + base);
+//       });
+//       break;
+
+//     case "symbol":
+//       const reverseMap = { "@": "a", "3": "e", "!": "i", "0": "o", "$": "s","4":"n" };
+//       decode = encoded.replace(/[@3!0$4]/g, c => reverseMap[c] || c);
+//       break;
+//   }
+
+//   resultBox.textContent = decode;
+// }
+
 function decode() {
   const method = methodSelect.value;
-  const encoded = resultBox.textContent;
-  let decoded = "";
+  const encode = messageInput.value; 
+  let decode = "";
 
   switch (method) {
     case "reverse":
-      decode = encoded.split("").reverse().join("");
+      decode = encode.split("").reverse().join("");
       break;
 
     case "Caesar":
-      decode = encoded.replace(/[a-z]/gi, char => {
+      decode = encode.replace(/[a-z]/gi, (char) => {
         const shift = -3;
-        const base = char >= 'a' ? 97 : 65;
-        return String.fromCharCode((char.charCodeAt(0) - base + shift + 26) % 26 + base);
+        const base = char >= "a" ? 97 : 65;
+        return String.fromCharCode(
+          ((char.charCodeAt(0) - base + shift + 26) % 26) + base
+        );
       });
       break;
 
     case "symbol":
-      const reverseMap = { "@": "a", "3": "e", "!": "i", "0": "o", "$": "s","4":"n" };
-      decode = encoded.replace(/[@3!0$4]/g, c => reverseMap[c] || c);
+      const reverseMap = { "@": "a", 3: "e", "!": "i", 0: "o", $: "s" };
+      decode = encode.replace(/[@3!0$]/g, (c) => reverseMap[c] || c);
       break;
   }
 
   resultBox.textContent = decode;
 }
+
 
 function clear() {
   messageInput.value = "";
